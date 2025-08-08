@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xizmat vaqtincha to‘xtadi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1d4055, #36909b);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            background: rgba(0,0,0,0.4);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .message {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .user-message {
+            font-size: 1rem;
+            font-style: italic;
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 10px;
+            transition: opacity 0.5s ease-in-out;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: white;
+            color: #2e8bb3;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .btn:hover {
+            background: #251c81;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>⚠ Xizmat vaqtincha to‘xtadi</h1>
+        <div class="message">
+            Test bo‘limi yangilanishi munosabati bilan<br>
+            <strong>15/09/2025</strong> gacha vaqtincha o‘z faoliyatini to‘xtatdi.
+        </div>
+        <div id="userMessage" class="user-message"></div>
+        <a href="https://www.maktabavto.uz/" class="btn">Qaytish</a>
+    </div>
+
+    <script>
+        const userMessages = [
+            "📱 Aziz foydalanuvchi, sabr qilganingiz uchun rahmat!",
+            "🛠 Yangilanishlar siz uchun yanada qulayliklar olib keladi.",
+            "⏳ Yaqin kunlarda yangilangan versiyani sinab ko‘rishingiz mumkin bo‘ladi.",
+            "💡 Fikr va takliflaringiz biz uchun juda muhim."
+        ];
+
+        let index = 0;
+        const userMessageDiv = document.getElementById('userMessage');
+
+        function changeMessage() {
+            userMessageDiv.style.opacity = 0;
+            setTimeout(() => {
+                userMessageDiv.textContent = userMessages[index];
+                userMessageDiv.style.opacity = 1;
+                index = (index + 1) % userMessages.length;
+            }, 500);
+        }
+
+        changeMessage();
+        setInterval(changeMessage, 3000);
+    </script>
+
+</body>
+</html>
